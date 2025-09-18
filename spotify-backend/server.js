@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import songRouter from './src/routes/songRoute.js';
+import albumRouter from './src/routes/albumRoute.js';  // ✅ added
 import connectDB from './src/config/mongodb.js';
 import connectCloudinary from './src/config/cloudinary.js';
 
@@ -12,10 +13,11 @@ connectCloudinary();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://music-player-nezv.vercel.app/",  // allow only frontend
+  origin: "https://music-player-nezv.vercel.app",  // ✅ removed trailing slash
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
+// Routes
 app.use("/api/song", songRouter);
 app.use("/api/album", albumRouter);
 
