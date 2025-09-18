@@ -7,7 +7,7 @@ const PlayerContextProvider = (props) => {
   const audioRef = useRef();
   const seekBg = useRef();
   const seekBar = useRef();
-  const url = import.meta.env.VITE_API_URL;
+  const url = 'https://music-player-tau-gray.vercel.app/';
   const [songsData,setSongsData]=useState([]);
   const [albumsData,setAlbumsData]=useState([]);
   const [track, setTrack] = useState(songsData[0]);
